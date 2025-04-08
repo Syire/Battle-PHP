@@ -1,6 +1,6 @@
 # 🎯 **Battaglia Navale - PHP Edition**
 
-Benvenuto nel gioco della **Battaglia Navale**, realizzato con **PHP** e **CSS**! Posiziona le navi su una griglia 10x10, spara colpi strategici e affonda la flotta nemica!
+Benvenuto nel gioco della **Battaglia Navale**, realizzato con **PHP** e **CSS**!
 
 ## 📘 **Descrizione**
 
