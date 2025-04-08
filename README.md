@@ -36,8 +36,3 @@ Questo progetto implementa il gioco della **Battaglia Navale** utilizzando **PHP
 4. Interagisci con il gioco cliccando sulla griglia per sparare.
 5. Clicca su "Reset Partita" per iniziare una nuova partita.
 
-## **Possibili Miglioramenti**
-- Implementare un sistema di **autenticazione** completo nel file `login.php`.
-- Aggiungere una modalità **multiplayer**.
-- Creare un'intelligenza artificiale per giocare contro il computer.
-
