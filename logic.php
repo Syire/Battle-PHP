@@ -40,22 +40,40 @@ function inizializzaGriglia()
 
 function posizionaNave($ships, $nomeNave)
 {
+    $colonne = range("A", "J");
+    $righe = range(1, 10);
     do {
-        $orientamento = rand(0, 1);
-        $colonna = chr(rand(65, 74)); 
-        $riga = rand(1, 10); 
         $posizioni = [];
-        for ($i = 0; $i < $ships[$nomeNave]['lenght']; $i++) {
-            $nuovaPosizione = $orientamento == 0 ? $colonna . ($riga + $i) : chr(ord($colonna) + $i) . $riga;
-            if (!in_array($nuovaPosizione, $ships['allPosition'])) {
-                $posizioni[] = $nuovaPosizione;
+        $valide = true;
+        $orientamento = rand(0, 1); 
+        $colIndex = rand(0, 9);
+        $rowIndex = rand(0, 9);
+        $lunghezza = $ships[$nomeNave]['lenght'];
+        for ($i = 0; $i < $lunghezza; $i++) {
+            if ($orientamento == 0) {
+                $riga = $rowIndex + $i;
+                if ($riga > 9) {
+                    $valide = false;
+                    break;
+                }
+                $cella = $colonne[$colIndex] . $righe[$riga];
+            } else {
+                $col = $colIndex + $i;
+                if ($col > 9) {
+                    $valide = false;
+                    break;
+                }
+                $cella = $colonne[$col] . $righe[$rowIndex];
             }
+            if (in_array($cella, $ships['allPosition'])) {
+                $valide = false;
+                break;
+            }
+            $posizioni[] = $cella;
         }
-    } while (count($posizioni) != $ships[$nomeNave]['lenght']);
-
+    } while (!$valide);
     $ships[$nomeNave]['position'] = $posizioni;
     $ships['allPosition'] = array_merge($ships['allPosition'], $posizioni);
-
     return $ships;
 }
 
